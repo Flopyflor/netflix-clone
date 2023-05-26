@@ -38,7 +38,6 @@ const useLogin = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log("hola")
         // manda los datos de usuario al userContext
         login({ email, password });
     };
