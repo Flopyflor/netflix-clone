@@ -4,6 +4,7 @@ import UserContext from "../context/userContext/UserContext";
 import Home from "../Components/home/Home";
 import Login from "../Components/login/Login";
 import { BrowserRouter as Router } from "react-router-dom";
+import SignUp from "../Components/signUp/SignUp";
 
 const AppRouter = () => {
     //userContext   
@@ -16,6 +17,8 @@ const AppRouter = () => {
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/login" element={<Login />} />
+                <Route exact path="/nueva-cuenta" element={<SignUp />} />
+
                 {(!loading) ?
                     <>
 

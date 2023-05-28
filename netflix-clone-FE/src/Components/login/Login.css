@@ -2,6 +2,16 @@ html {
     height: 100%;
 }
 
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px rgb(23, 23, 23 ) inset !important;
+}
+input:-webkit-autofill{
+    -webkit-text-fill-color: #fff !important;
+}
 
 .login-box {
     position: absolute;
@@ -207,10 +217,12 @@ p {
     background-color: #56baed;
     content: "";
     transition: width 0.2s;
-  }
-  .link:hover:after{
+}
+
+.link:hover:after {
     width: 100%;
-  }
+}
+
 /* -////////////////////---------------------------- */
 /* EFECTO DE HOVER ME  */
 

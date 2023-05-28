@@ -9,10 +9,10 @@ const Login = () => {
         <div className="login-box" id="card">
             <div className='content'>
                 <h2>Login</h2>
-                <form onSubmit={onSubmit}>
+                <form onSubmit={onSubmit} >
 
                     <div className="user-box">
-                        <input autoComplete="email" type="text" name="email" required onChange={changeInput} />
+                        <input autoComplete="email" type="text" name="email" required onChange={changeInput} autoFocus/>
                         <label>Username</label>
                     </div>
                     <div className="user-box">
