@@ -9,7 +9,7 @@ function App() {
     <>
       <SnackbarState>
         <UserState>
-          <AppRouter />
+            <AppRouter />
         </UserState>
       </SnackbarState>
     </>
