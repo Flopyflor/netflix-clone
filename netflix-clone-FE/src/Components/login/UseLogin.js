@@ -15,11 +15,10 @@ const useLogin = () => {
 
     //userContext
     const userContext = useContext(UserContext);
-    const { authenticated, msg, login } = userContext;
+    const { authenticated, msg, login, category } = userContext;
 
-    // context Snakbar
-    const snackbarContext = useContext(SnackBarContext)
-    const { openSnackbar } = snackbarContext
+    const snackBarContext = useContext(SnackBarContext)
+    const { openSnackbar } = snackBarContext
 
     const changeInput = (e) => {
         setUser({
@@ -43,15 +42,13 @@ const useLogin = () => {
     };
 
     useEffect(() => {
-        if (authenticated) {
-            navigate("/")
-        }
 
-        if (msg) {
-            openSnackbar(msg.msg, msg.category)
-        }
+        if (authenticated)  navigate("/")
+        if (msg) openSnackbar(msg, category)
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [authenticated, msg]);
+
     return {
         changeInput,
         loginButtonDisabled,

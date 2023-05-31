@@ -10,7 +10,7 @@ import {
   REGISTER_ERROR,
   GET_USER,
   GET_USER_SUCCESSFUL,
-  SIGN_OFF
+  SIGN_OFF,
 } from "../types";
 
 const UserState = (props) => {
@@ -20,10 +20,11 @@ const UserState = (props) => {
     user: null,
     loading: false,
     msg: null,
-    isAdmin: false
   };
 
   const [state, dispatch] = useReducer(UserReducer, initialState);
+
+  
 
   // registra un usuario
   const registerUser = async (data) => {
@@ -56,6 +57,7 @@ const UserState = (props) => {
 
   // devuelve el usuario autentificado
   const authenticatedUser = async () => {
+
     const token = localStorage.getItem("token");
     if (token) {
       tokenAuth(token);
@@ -95,8 +97,8 @@ const UserState = (props) => {
 
       setTimeout(() => {
         authenticatedUser();
-      }, 50)
 
+      }, 50)
     } catch (error) {
       console.log(error.response.data.msg)
       const alert = {
@@ -110,7 +112,6 @@ const UserState = (props) => {
 
     }
   };
-
 
   //cerrar secion
   const signOff = () => {
@@ -135,7 +136,6 @@ const UserState = (props) => {
         login,
         authenticatedUser,
         signOff,
-        isAdmin: state.isAdmin
       }}
     >
       {props.children}

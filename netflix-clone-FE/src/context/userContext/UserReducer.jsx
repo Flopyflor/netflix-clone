@@ -5,9 +5,10 @@ import {
   GET_USER,
   LOGIN_SUCCESSFUL,
   GET_USER_SUCCESSFUL,
-  SIGN_OFF
+  SIGN_OFF,
 } from "../types";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default (state, action) => {
   switch (action.type) {
     case LOGIN_SUCCESSFUL:
@@ -42,7 +43,6 @@ export default (state, action) => {
         authenticated: true,
         user: action.payload,
         loading: true,
-        isAdmin: action.payload.roles.some(rol => rol.name === "admin")
       };
 
     case GET_USER_SUCCESSFUL:

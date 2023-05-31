@@ -4,14 +4,17 @@ import SnackBarContext from "./SnackbarContext";
 import { CLOSE_SNACKBAR, OPEN_SNACKBAR } from "../types";
 const SnackbarState = (props) => {
     const initialState = {
-        snackbarMsg: null,
+        category: null,
+        open: false,
+        msg: null
     };
+    
 
     const [state, dispatch] = useReducer(SnackbarReducer, initialState);
 
-    const openSnackbar = (msg, severity) => {
+    const openSnackbar = ({ msg, category }) => {
         const alert = {
-            msg, severity
+            msg, category
         }
         dispatch({
             type: OPEN_SNACKBAR,
@@ -28,7 +31,9 @@ const SnackbarState = (props) => {
     return (
         <SnackBarContext.Provider
             value={{
-                snackbarMsg: state.snackbarMsg,
+                msg: state.msg,
+                category: state.category,
+                open: state.open,
                 openSnackbar
             }}
         >

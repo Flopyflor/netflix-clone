@@ -18,7 +18,7 @@ const AppRouter = () => {
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/nueva-cuenta" element={<SignUp />} />
-
+            
                 {(!loading) ?
                     <>
 

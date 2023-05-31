@@ -1,7 +1,14 @@
+import Alert from "../alert/Alert";
+
 const Home = () => {
-    return ( <div>
+    return (<>
+
+    <div>
         home
-    </div> );
+    </div> 
+        <Alert />
+    </> 
+    );
 }
  
 export default Home;

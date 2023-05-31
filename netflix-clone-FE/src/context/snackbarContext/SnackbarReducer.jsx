@@ -8,13 +8,17 @@ export default (state, action) => {
     switch (action.type) {
         case OPEN_SNACKBAR:
             return {
-                snackbarMsg: action.payload,
+                category: action.payload.category,
+                msg: action.payload.msg,
+                open: true,
             };
         case CLOSE_SNACKBAR:
             return {
-                snackbarMsg: "",
+                category: null,
+                msg: null,
+                open: false,
             };
-
+       
         default:
             return state;
     }
