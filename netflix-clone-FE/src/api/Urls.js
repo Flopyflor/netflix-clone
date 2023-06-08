@@ -26,7 +26,9 @@ const API = {
     },
     BASE_IMAGE: 'https://image.tmdb.org/t/p',
     IMAGE_SIZES: {
-        W500: 'w500'
+        W500: 'w500',
+        W154: 'w154',
+        W1280: 'w1280'
     }
 }
 

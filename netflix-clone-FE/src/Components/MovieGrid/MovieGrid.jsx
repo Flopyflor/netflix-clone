@@ -1,18 +1,37 @@
-import { useEffect, useState } from "react";
-import { getTopMovies } from "../../api/Endpoints";
+import { useNavigate } from "react-router-dom";
+import { getImageURL, getTopMovies } from "../../api/Endpoints";
+import { mapTopMovies } from "../../api/MapAnswer";
+import useFetch from "../../hooks/useFetch";
+import './MovieGrid.css'
 
 function MovieGrid() {
-  const [movies, setMovies] = useState([]);
+  const {data: movies, isLoading, error} = useFetch(getTopMovies, mapTopMovies);
 
-  useEffect(() => {
-    getTopMovies().then((res)=> {
-          setMovies(res)
-      });
-  
-  }, [])
+  const navigate = useNavigate();
 
     return (
-        <div>{movies ? movies.map((movie) => (<p key={movie.id}>{movie.title} </p>)) : ""}</div>
+      <>
+      <h1>{error}</h1>
+
+      {isLoading ? (
+        <h1>Loading...</h1>
+      ) : (
+
+        <div className="movieGrid">{
+          (movies && !error) ? 
+          movies.map((movie) => (
+            <div 
+            className="movieCard"
+            key={movie.id}>
+              <img src={getImageURL(movie.poster)}
+              onClick={()=>{navigate(`/movie/${movie.id}`)}}/> 
+              <p className="movieTitle">{movie.title}</p>
+            </div>)) 
+          
+          : ''}
+          </div>
+      )}
+      </>
     )
 }
 

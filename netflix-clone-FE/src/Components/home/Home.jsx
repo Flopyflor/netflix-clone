@@ -1,3 +1,4 @@
+import MovieGrid from "../MovieGrid/MovieGrid";
 import Alert from "../alert/Alert";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         home
     </div> 
         <Alert />
+        <MovieGrid></MovieGrid>
     </> 
     );
 }
