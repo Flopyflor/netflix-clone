@@ -8,6 +8,7 @@ import SignUp from "../Components/signUp/SignUp";
 import Layout from '../Components/header/Layout'
 import MovieView from "../pages/movie/MovieView/MovieView";
 import MovieCategory from '../pages/category/MovieCategory'
+import SearchMovieResults from "../pages/searchMovie/SearchMovieResults";
 
 const AppRouter = () => {
     //userContext   
@@ -25,6 +26,7 @@ const AppRouter = () => {
                     <Route exact path="/nueva-cuenta" element={<SignUp />} />
                     <Route exact path="/movie/:id" element={<MovieView/>} />
                     <Route exact path="/:category/movies" element={<MovieCategory/>} />
+                    <Route exact path="/search/movies" element={<SearchMovieResults/>} />
 
                     {(!loading) ?
                         <>

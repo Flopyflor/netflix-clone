@@ -7,6 +7,7 @@ const API = {
     CREDITS: 'credits',
     GENRE: 'genre',
     LIST: 'list',
+    SEARCH: 'search',
     FILTERS: {
         INCLUDE_ADULT: 'include_adult',
         INCLUDE_VIDEO: 'include_video',
@@ -18,6 +19,7 @@ const API = {
         WITH_KEYWORDS: 'with_keywords',
         WITH_PEOPLE: 'with_people',
         YEAR: 'year',
+        QUERY: 'query'
     },
     LANGUAGES: {
         EN: 'en-US',

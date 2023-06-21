@@ -47,3 +47,20 @@ export function mapMovieDetails(movie) {
         backdrop: movie.backdrop_path
     };
 }
+
+export function mapSearchMovies(results){
+    console.log(results)
+    const movies = results.results.map((movie)=>{
+        return {
+            id: movie.id,
+            title: movie.title,
+            poster: movie.poster_path,
+            overview: movie.overview
+        }
+    })
+
+    return {
+        totalPages: results.total_pages,
+        movies: movies
+    }
+}

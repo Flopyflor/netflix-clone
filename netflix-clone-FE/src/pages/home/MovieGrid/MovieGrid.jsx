@@ -3,7 +3,7 @@ import { getImageURL, getTopMovies } from "../../../api/Endpoints";
 import './MovieGrid.css'
 import useSWR from 'swr'
 import { Loading, Text, Image } from "@nextui-org/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import API from '../../../api/Urls';
 
 const {PAGE} = API.FILTERS

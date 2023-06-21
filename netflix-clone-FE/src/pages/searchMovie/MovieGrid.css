@@ -1,0 +1,23 @@
+.movieGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    margin: 10px;
+    column-gap: 10px;
+    align-items: start;
+    row-gap: 20px;
+}
+
+.movieCard {
+    justify-content: center;
+    align-content: center;
+    transition: transform 0.5s;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 15px;
+    text-align: center;
+}
+
+.movieCard:hover {
+    transform: scale(105%);
+}
