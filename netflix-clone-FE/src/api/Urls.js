@@ -5,6 +5,8 @@ const API = {
     MOVIE: "movie",
     API_KEY: "api_key",
     CREDITS: 'credits',
+    GENRE: 'genre',
+    LIST: 'list',
     FILTERS: {
         INCLUDE_ADULT: 'include_adult',
         INCLUDE_VIDEO: 'include_video',

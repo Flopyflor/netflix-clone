@@ -21,19 +21,27 @@ export function mapTopTV(results){
 }
 
 export function mapMovieCredits(results){
+
+    console.log("creditos:", results)
+
     return results.cast.map((person)=> {
         return {
             id: person.id,
             name: person.name,
-            character: person.character
+            character: person.character,
+            profile: person.profile_path
         }
     });
 }
 
 export function mapMovieDetails(movie) {
+
+    //console.log("movie:", movie)
+
     return {
         id: movie.id,
         title: movie.title,
+        tagline: movie.tagline,
         overview: movie.overview,
         release_date: movie.release_date,
         backdrop: movie.backdrop_path

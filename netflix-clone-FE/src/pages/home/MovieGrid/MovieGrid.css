@@ -9,11 +9,13 @@
 
 .movieCard {
     justify-content: center;
+    align-content: center;
     transition: transform 0.5s;
     cursor: pointer;
     display: flex;
     flex-flow: column nowrap;
     row-gap: 15px;
+    text-align: center;
 }
 
 .movieCard:hover {

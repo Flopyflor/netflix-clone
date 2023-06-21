@@ -4,7 +4,7 @@ import { mapMovieCredits, mapMovieDetails, mapTopMovies, mapTopTV } from './MapA
 
 const AUTH_TOKEN = import.meta.env.VITE_APP_API_KEY;
 
-const {BASE, DISCOVER, MOVIE, TV, CREDITS, FILTERS, LANGUAGES, SORT_KEY, IMAGE_SIZES, BASE_IMAGE} = API;
+const {BASE, DISCOVER, MOVIE, TV, CREDITS, FILTERS, LANGUAGES, SORT_KEY, IMAGE_SIZES, BASE_IMAGE, GENRE, LIST} = API;
 const {INCLUDE_ADULT, INCLUDE_VIDEO, LANGUAGE, PAGE, SORT_BY} = FILTERS;
 
 const options = {
@@ -15,13 +15,17 @@ const options = {
     }
 };
 
-export async function getTopMovies(name="", params = {
-    [INCLUDE_ADULT]: false,
-    [INCLUDE_VIDEO]: false,
-    [LANGUAGE]: LANGUAGES.EN,
-    [PAGE]: 1,
-    [SORT_BY]: SORT_KEY.POPULARITY_DESC
-}){
+export async function getTopMovies(keys={}){
+
+    const params = {
+        [INCLUDE_ADULT]: false,
+        [INCLUDE_VIDEO]: false,
+        [LANGUAGE]: LANGUAGES.EN,
+        [PAGE]: 1,
+        [SORT_BY]: SORT_KEY.POPULARITY_DESC,
+        ...keys
+    }
+
     const url = [BASE, DISCOVER, MOVIE].join("/") +'?'+ new URLSearchParams(params)
 
     const res = await axios.get(url, options)
@@ -33,13 +37,16 @@ export async function getTopMovies(name="", params = {
     return mapTopMovies(await res.data)
 }
 
-export async function getTopTV(name="", params = {
-    [INCLUDE_ADULT]: true,
-    [INCLUDE_VIDEO]: true,
-    [LANGUAGE]: LANGUAGES.EN,
-    [PAGE]: 1,
-    [SORT_BY]: SORT_KEY.POPULARITY_DESC
-}){
+export async function getTopTV(keys={}){
+
+    const params = {
+        [INCLUDE_ADULT]: true,
+        [INCLUDE_VIDEO]: true,
+        [LANGUAGE]: LANGUAGES.EN,
+        [PAGE]: 1,
+        [SORT_BY]: SORT_KEY.POPULARITY_DESC,
+        ...keys
+    }
 
     const url = [BASE, DISCOVER, TV].join("/")+  '?'+ new URLSearchParams(params);
     const res = await axios.get(url, options)
