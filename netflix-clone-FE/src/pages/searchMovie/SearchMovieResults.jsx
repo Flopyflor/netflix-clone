@@ -50,9 +50,9 @@ function SearchMovieResults({passedQuery = ''}) {
 
   return (
   <>
-  <div className="searchGroup">
+  <div className="searchGroup" >
     <Input className="searchInput" aria-label='search' onChange={(q)=> setSearch(q.target.value)}/>
-    <Button className="searchBtn" onPress={()=> {setQuery(search)}}>Search</Button>
+    <Button className="searchBtn" onPress={()=> {setQuery(search)}} css={{zIndex: 1}}>Search</Button>
   </div>
 
     <Text h1>Movies related to '{query}': </Text>
