@@ -3,7 +3,7 @@ import useSWR from 'swr'
 
 function MovieCredits({id}) {
 
-    const {data: credits, isLoading: creditsLoading, error: creditsError} = useSWR(`MovieCredits${id}`, async ()=> await getMovieCreditsById(id));
+    const {data: credits, isLoading: creditsLoading, error: creditsError} = useSWR(`MovieCredits${id}`, async (name)=> await getMovieCreditsById(id));
  
     if (creditsLoading) {
         return <h1>Loading...</h1>

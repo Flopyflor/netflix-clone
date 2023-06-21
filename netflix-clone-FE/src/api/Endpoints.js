@@ -2,7 +2,7 @@ import axios from 'axios'
 import API from './Urls'
 import { mapMovieCredits, mapMovieDetails, mapTopMovies, mapTopTV } from './MapAnswer';
 
-const AUTH_TOKEN = import.meta.process.env.AUTH_TOKEN;
+const AUTH_TOKEN = import.meta.env.VITE_APP_API_KEY;
 
 const {BASE, DISCOVER, MOVIE, TV, CREDITS, FILTERS, LANGUAGES, SORT_KEY, IMAGE_SIZES, BASE_IMAGE} = API;
 const {INCLUDE_ADULT, INCLUDE_VIDEO, LANGUAGE, PAGE, SORT_BY} = FILTERS;
@@ -15,7 +15,7 @@ const options = {
     }
 };
 
-export async function getTopMovies(params = {
+export async function getTopMovies(name="", params = {
     [INCLUDE_ADULT]: false,
     [INCLUDE_VIDEO]: false,
     [LANGUAGE]: LANGUAGES.EN,
@@ -33,7 +33,7 @@ export async function getTopMovies(params = {
     return mapTopMovies(await res.data)
 }
 
-export async function getTopTV(params = {
+export async function getTopTV(name="", params = {
     [INCLUDE_ADULT]: true,
     [INCLUDE_VIDEO]: true,
     [LANGUAGE]: LANGUAGES.EN,

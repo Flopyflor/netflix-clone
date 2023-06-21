@@ -7,7 +7,7 @@ import MovieCredits from "../MovieCredits/MovieCredits";
 function MovieView() {
     const {id} = useParams();
 
-    const {data: movie, isLoading: movieLoading, error: movieError} = useSWR(`MovieDetails${id}`, async () => await getMovieById(id));
+    const {data: movie, isLoading: movieLoading, error: movieError} = useSWR(`MovieDetails${id}`, async (name) => await getMovieById(id));
  
     if (movieLoading) {
         return <h1>Loading...</h1>
