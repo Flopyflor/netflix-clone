@@ -1,10 +1,11 @@
+import axios from 'axios'
 import API from './Urls'
+import { mapMovieCredits, mapMovieDetails, mapTopMovies, mapTopTV } from './MapAnswer';
 
 const AUTH_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YTBhNjhjMjkyNDBhMDI2NDRmYTJiMWEzMGEwZmQ4YiIsInN1YiI6IjY0NzBmNzU4ODgxM2U0MDBjM2FkZDdmOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.eyiaWgTYJYitVZU22zFYPMOYI2EHM9Uw9ZfrSUa0GYs';
 
 const {BASE, DISCOVER, MOVIE, TV, CREDITS, FILTERS, LANGUAGES, SORT_KEY, IMAGE_SIZES, BASE_IMAGE} = API;
 const {INCLUDE_ADULT, INCLUDE_VIDEO, LANGUAGE, PAGE, SORT_BY} = FILTERS;
-
 
 const options = {
     method: 'GET',
@@ -21,13 +22,15 @@ export async function getTopMovies(params = {
     [PAGE]: 1,
     [SORT_BY]: SORT_KEY.POPULARITY_DESC
 }){
+    const url = [BASE, DISCOVER, MOVIE].join("/") +'?'+ new URLSearchParams(params)
 
-    try {
-        return await fetch([BASE, DISCOVER, MOVIE].join("/") + '?'+ new URLSearchParams(params), options);
-    } catch (e) {
-        console.log("ERROR al cargar", e);
-        return e;
+    const res = await axios.get(url, options)
+
+    if (await res.status != 200){
+        throw Error(res);
     }
+    
+    return mapTopMovies(await res.data)
 }
 
 export async function getTopTV(params = {
@@ -38,32 +41,36 @@ export async function getTopTV(params = {
     [SORT_BY]: SORT_KEY.POPULARITY_DESC
 }){
 
-    try {
-        return await fetch([BASE, DISCOVER, TV].join("/")+ '?'+ new URLSearchParams(params), options);
-    } catch (e) {
-        console.log(e);
-        return "ERROR"
+    const url = [BASE, DISCOVER, TV].join("/")+  '?'+ new URLSearchParams(params);
+    const res = await axios.get(url, options)
+
+    if (await res.status != 200){
+        throw Error(res);
     }
-    
+
+    return mapTopTV(await res.data)    
 }
 
-export async function getMovieById(id) {
-    try {
-        return await fetch([BASE, MOVIE, id].join("/"), options);
-    } catch (e){
-        console.log(e)
-        return (e)
+export async function getMovieById(id) {  
+    const url = [BASE, MOVIE, id].join("/");
+    const res = await axios.get(url, options)
+
+    if (await res.status != 200){
+        throw Error(res);
     }
+    
+    return mapMovieDetails(await res.data)
 }
 
 export async function getMovieCreditsById(id){
-    try {
-        return fetch([BASE, MOVIE, id, CREDITS].join("/"), options);
+    const url = [BASE, MOVIE, id, CREDITS].join("/");
+    const res = await axios.get(url, options)
 
-    } catch (e){
-        console.log(e)
-        return (e)
+    if (await res.status != 200){
+        throw Error(res);
     }
+    
+    return mapMovieCredits(await res.data)
 }
 
 export function getImageURL(name, size=IMAGE_SIZES.W154) {

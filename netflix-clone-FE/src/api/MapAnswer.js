@@ -21,8 +21,7 @@ export function mapTopTV(results){
 }
 
 export function mapMovieCredits(results){
-    console.log("you are asking me to map the movie credits of this: ", movie)
-    return cast =  results.cast.map((person)=> {
+    return results.cast.map((person)=> {
         return {
             id: person.id,
             name: person.name,

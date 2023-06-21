@@ -49,7 +49,7 @@ const Navbar = () => {
                     </>
                     : <div className='navbar_item'>
                         <div className='navbar_action'>
-                            <Button variant="contained" type='button' className="navbar" onClick={navigateToLogin}>Inciar Secion</Button>
+                            <Button variant="contained" type='button' className="navbar" onClick={navigateToLogin}>Inciar Sesion</Button>
                         </div>
                     </div>}
                 <div className='navbar_item'>
