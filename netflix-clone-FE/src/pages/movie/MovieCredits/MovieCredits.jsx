@@ -1,4 +1,4 @@
-import { getMovieCreditsById } from "../../api/Endpoints";
+import { getMovieCreditsById } from "../../../api/Endpoints";
 import useSWR from 'swr'
 
 function MovieCredits({id}) {

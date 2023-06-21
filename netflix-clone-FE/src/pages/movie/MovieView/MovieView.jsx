@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { getImageURL, getMovieById, getMovieCreditsById } from "../../api/Endpoints";
-import API from "../../api/Urls"
+import { getImageURL, getMovieById, getMovieCreditsById } from "../../../api/Endpoints";
+import API from "../../../api/Urls"
 import useSWR from 'swr'
 import MovieCredits from "../MovieCredits/MovieCredits";
 

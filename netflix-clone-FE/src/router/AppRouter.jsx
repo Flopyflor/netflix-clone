@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import UserContext from "../context/userContext/UserContext";
-import Home from "../Components/home/Home";
+import Home from "../pages/home/home/Home";
 import Login from "../Components/login/Login";
 import { BrowserRouter as Router } from "react-router-dom";
 import SignUp from "../Components/signUp/SignUp";
 import Layout from '../Components/header/Layout'
-import MovieView from "../Components/MovieView/MovieView";
+import MovieView from "../pages/movie/MovieView/MovieView";
 
 const AppRouter = () => {
     //userContext   

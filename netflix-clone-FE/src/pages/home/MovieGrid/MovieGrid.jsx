@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { getImageURL, getTopMovies } from "../../api/Endpoints";
+import { getImageURL, getTopMovies } from "../../../api/Endpoints";
 import './MovieGrid.css'
 import useSWR from 'swr'
 

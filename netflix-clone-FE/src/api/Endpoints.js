@@ -2,7 +2,7 @@ import axios from 'axios'
 import API from './Urls'
 import { mapMovieCredits, mapMovieDetails, mapTopMovies, mapTopTV } from './MapAnswer';
 
-const AUTH_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YTBhNjhjMjkyNDBhMDI2NDRmYTJiMWEzMGEwZmQ4YiIsInN1YiI6IjY0NzBmNzU4ODgxM2U0MDBjM2FkZDdmOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.eyiaWgTYJYitVZU22zFYPMOYI2EHM9Uw9ZfrSUa0GYs';
+const AUTH_TOKEN = import.meta.process.env.AUTH_TOKEN;
 
 const {BASE, DISCOVER, MOVIE, TV, CREDITS, FILTERS, LANGUAGES, SORT_KEY, IMAGE_SIZES, BASE_IMAGE} = API;
 const {INCLUDE_ADULT, INCLUDE_VIDEO, LANGUAGE, PAGE, SORT_BY} = FILTERS;
