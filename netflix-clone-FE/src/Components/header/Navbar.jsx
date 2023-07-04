@@ -30,7 +30,7 @@ const Navbar = () => {
                     {dropdownCategory &&
                         <ul className={click ? 'navbar_dropdown dropdown_clicked' : "navbar_dropdown"}>
                             {
-                                categories.map((category, i) => <Dropdown name={category.name} path={category.path} key={i} />)
+                                categories.map((category) => <Dropdown name={category.name} path={category.id} key={category.id} />)
                             }
                         </ul>
                     }

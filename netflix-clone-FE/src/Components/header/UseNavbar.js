@@ -1,29 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../context/userContext/UserContext";
+import {movieGenres} from "../../api/Genres";
 
-const categories = [
-    {
-        name: "Accion",
-        path: "Accion",
-    },
-    {
-        name: "drama",
-        path: "drama",
-    },
-    {
-        name: "comedia",
-        path: "comedia",
-    },
-    {
-        name: "romance",
-        path: "romance",
-    },
-    {
-        name: "animacion",
-        path: "animacion",
-    },
-];
+const categories = movieGenres;
 
 
 const UseNavbar = () => {
