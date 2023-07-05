@@ -1,6 +1,6 @@
 import axios from 'axios'
 import API from './Urls'
-import { mapMovieCredits, mapMovieDetails, mapTopMovies, mapTopTV, mapSearchMovies } from './MapAnswer';
+import { mapMovieCredits, mapMovieDetails, mapTopMovies, mapTopTV, mapSearchMovies, mapTVDetails } from './MapAnswer';
 
 const AUTH_TOKEN = import.meta.env.VITE_APP_API_KEY;
 
@@ -101,4 +101,15 @@ export async function getMovieSearch(query='', page=1) {
     }
     
     return mapSearchMovies(await res.data)
+}
+
+export async function getTVById(id) {
+    const url = [BASE, TV, id].join("/");
+    const res = await axios.get(url, options)
+
+    if (await res.status != 200){
+        throw Error(res);
+    }
+    
+    return mapTVDetails(await res.data)
 }

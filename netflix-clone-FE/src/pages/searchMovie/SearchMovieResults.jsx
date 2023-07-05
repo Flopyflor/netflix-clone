@@ -42,7 +42,7 @@ function SearchMovieResults({passedQuery = ''}) {
     <Button className="searchBtn" onPress={()=> {setQuery(search)}} css={{zIndex: 1}}>Search</Button>
   </div>
 
-    <Text h1>Movies related to '{query}': </Text>
+    <Text h2>Movies related to '{query}': </Text>
     
     {movieView}
   </>)

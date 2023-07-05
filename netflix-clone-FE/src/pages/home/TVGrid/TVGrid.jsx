@@ -1,4 +1,4 @@
-import { getTopMovies } from "../../../api/Endpoints";
+import { getTopTV } from "../../../api/Endpoints";
 import useSWR from 'swr'
 import { Loading, Text } from "@nextui-org/react";
 import { useState } from "react";
@@ -8,11 +8,11 @@ import TitleCard from "../../../Components/titleCard/titleCard";
 
 const {PAGE} = API.FILTERS
 
-function MovieGrid() { 
+function TVGrid() { 
 
   const [page, setPage] = useState(1)  
 
-  const {data: movies, isLoading, error} =  useSWR(`TopMovies${page}`, async (name) => await getTopMovies({[PAGE]: page})) ;   
+  const {data: movies, isLoading, error} =  useSWR(`TopTV${page}`, async (name) => await getTopTV({[PAGE]: page})) ;   
 
   if (isLoading){
     return <Loading/>
@@ -22,7 +22,7 @@ function MovieGrid() {
   else{
     return (
       <>
-        <Text h2>Top Movies: </Text>
+        <Text h2>Top TV: </Text>
         <Carousel>
         {
             movies?.map((movie) => (
@@ -35,4 +35,4 @@ function MovieGrid() {
   }
 }
 
-export default MovieGrid
+export default TVGrid;

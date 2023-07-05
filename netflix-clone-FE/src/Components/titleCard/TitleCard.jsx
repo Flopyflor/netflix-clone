@@ -10,7 +10,7 @@ const TitleCard = ({ movie }) => {
 
     return (
         <div className={styles.titleCard} key={movie.id}>
-            <Image showSkeleton src={getImageURL(movie.poster)} onClick={()=>{navigate(`/movie/${movie.id}`)}}/> 
+            <Image showSkeleton src={getImageURL(movie.poster)} onClick={()=>{navigate(`/${movie.type}/${movie.id}`)}}/> 
 
             <Text h5 className={styles.titleCardText}>
                 {movie.title}
