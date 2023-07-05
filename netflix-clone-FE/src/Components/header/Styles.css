@@ -85,6 +85,8 @@
     background: rgb(205, 166, 194);
     padding-bottom: 20px;
     z-index: 1;
+    height: 500px;
+    overflow-y: scroll;
 }
 
 .dropdown_link {

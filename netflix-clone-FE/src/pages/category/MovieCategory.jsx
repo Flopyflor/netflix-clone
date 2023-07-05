@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { getTopMovies } from "../../api/Endpoints";
 import useSWR from 'swr'
-import { Loading, Text } from "@nextui-org/react";
+import { Loading, Text, Pagination } from "@nextui-org/react";
 import { useState } from "react";
 import API from '../../api/Urls'
 import { movieGenres } from "../../api/Genres";
@@ -33,6 +33,8 @@ function MovieCategory() {
             <TitleCard movie={movie} key={movie.id}></TitleCard>
         ))}
         </TitleGrid>
+
+        <Pagination initialPage={page} total={movies.totalPages} controls={false} onChange={(newPage) => {setPage(newPage)}}/>
         </>
     )
     }
