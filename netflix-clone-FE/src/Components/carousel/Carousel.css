@@ -19,7 +19,7 @@
 .overlayButton {
     background-color: rgba(0, 0, 0);
     color: white;
-    z-index: 50;
+    z-index: 5;
     font-size: 3em;
     width: fit-content;
     height: fit-content;
@@ -33,7 +33,6 @@
 .overlayButton:hover {
     opacity: 100%;
 }
-
 
 .items {
     height: 100%;
@@ -53,29 +52,4 @@
  /* Hide scrollbar for Chrome, Safari and Opera */
 .items::-webkit-scrollbar{
     display: none;
-}
-
-
-.movieCarouselCard {
-    padding-top: 10px;
-    cursor: pointer;
-    transition: transform 0.5s;
-    align-content: start;
-    flex-flow: column nowrap;
-    row-gap: 15px;
-    justify-content: start;
-    display: block;
-    display: flex;
-    flex-shrink: 0;
-    width: 154px;
-}
-
-.movieCarouselTitle {
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.movieCarouselCard:hover {
-    transform: scale(105%);
 }

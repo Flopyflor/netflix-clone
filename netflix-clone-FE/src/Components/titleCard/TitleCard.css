@@ -1,0 +1,23 @@
+.titleCard {
+    padding-top: 10px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    align-content: start;
+    flex-flow: column nowrap;
+    row-gap: 15px;
+    justify-content: start;
+    display: block;
+    display: flex;
+    flex-shrink: 0;
+    width: 154px;
+}
+
+.titleCardText {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.titleCard:hover {
+    transform: scale(105%);
+}

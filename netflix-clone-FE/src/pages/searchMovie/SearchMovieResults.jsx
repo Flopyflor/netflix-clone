@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import './MovieGrid.css'
 import useSWR from 'swr'
-import { Loading, Text, Image, Pagination, Input, Button } from "@nextui-org/react";
+import { Loading, Text, Pagination, Input, Button } from "@nextui-org/react";
 import { useState } from "react";
-import { getMovieSearch, getImageURL } from "../../api/Endpoints";
+import { getMovieSearch } from "../../api/Endpoints";
 import './SearchMovieResults.css'
+import TitleCard from "../../Components/titleCard/titleCard";
 
 function SearchMovieResults({passedQuery = ''}) { 
   const [query, setQuery] = useState(passedQuery)
@@ -13,9 +13,6 @@ function SearchMovieResults({passedQuery = ''}) {
   const [page, setPage] = useState(1)  
 
   const {data, isLoading, error} =  useSWR(`${query}&${page}`, async ()=> await getMovieSearch(query, page));
-
-
-  const navigate = useNavigate();  
 
   let movieView = (<></>)
 
@@ -29,17 +26,7 @@ function SearchMovieResults({passedQuery = ''}) {
       <>
       <div className="movieGrid">{
         data.movies?.map((movie) => (
-          <div 
-          className="movieCard"
-          key={movie.id}>
-            <Image showSkeleton src={getImageURL(movie.poster)}
-            onClick={()=>{navigate(`/movie/${movie.id}`)}}/> 
-            <Text 
-            h5 
-            className="movieTitle">
-              {movie.title}
-              </Text>
-          </div>))    
+          <TitleCard movie={movie}/>))    
         }</div>
 
       <Pagination initialPage={page} total={data.totalPages} controls={false} onChange={(newPage) => {setPage(newPage)}}/>
