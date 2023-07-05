@@ -1,4 +1,4 @@
-const RepusableAlert = ({ id = "success-box", msg = "exito!", face = "face", mouth = "mouth happy", shadow = "shadow scale", severity = "Success!", button="continue" }) => {
+const RepusableAlert = ({ id = "success-box", msg = "éxito!", face = "face", mouth = "mouth happy", shadow = "shadow scale", severity = "Success!", button="continue" }) => {
     return (
         <div id={id}>
             <div className="dot"></div>
