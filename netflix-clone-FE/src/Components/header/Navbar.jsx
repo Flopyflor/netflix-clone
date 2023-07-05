@@ -41,7 +41,7 @@ const Navbar = () => {
                 {authenticated ?
                     <>
                         <div className='navbar_item'>
-                            <Link href='/' className='navbar_link' onClick={handleClick}>Favoritos</Link>
+                            <Link to="/favoritos" href='/' className='navbar_link' onClick={handleClick}>Favoritos</Link>
                         </div>
 
                         <div className='navbar_item'>
