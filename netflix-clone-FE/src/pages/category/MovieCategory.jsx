@@ -32,7 +32,7 @@ function MovieCategory() {
         <Text h1>{category} Movies: </Text>
         <TitleGrid>
         {movies?.map((movie) => (
-            <TitleCard movie={movie}></TitleCard>
+            <TitleCard movie={movie} key={movie.id}></TitleCard>
         ))}
         </TitleGrid>
         </>

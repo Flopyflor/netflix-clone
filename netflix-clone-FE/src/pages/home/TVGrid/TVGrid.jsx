@@ -26,7 +26,7 @@ function TVGrid() {
         <Carousel>
         {
             movies?.map((movie) => (
-            <TitleCard movie={movie}/>
+            <TitleCard movie={movie} key={movie.id}/>
             ))    
             }
         </Carousel>

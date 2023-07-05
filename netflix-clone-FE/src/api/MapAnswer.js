@@ -50,6 +50,7 @@ export function mapMovieDetails(movie) {
 export function mapSearchMovies(results){
     const movies = results.results.map((movie)=>{
         return {
+            type: MOVIE,
             id: movie.id,
             title: movie.title,
             poster: movie.poster_path,

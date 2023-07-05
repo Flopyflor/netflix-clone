@@ -9,7 +9,7 @@ const TitleCard = ({ movie }) => {
     const navigate = useNavigate();
 
     return (
-        <div className={styles.titleCard} key={movie.id}>
+        <div className={styles.titleCard}>
             <Image showSkeleton src={getImageURL(movie.poster)} onClick={()=>{navigate(`/${movie.type}/${movie.id}`)}}/> 
 
             <Text h5 className={styles.titleCardText}>
