@@ -4,7 +4,7 @@ import { Loading, Text } from "@nextui-org/react";
 import { useState } from "react";
 import API from '../../../api/Urls';
 import Carousel from "../../../Components/carousel/Carousel";
-import TitleCard from "../../../Components/titleCard/titleCard";
+import TitleCard from "../../../Components/titleCard/TitleCard";
 
 const {PAGE} = API.FILTERS
 

@@ -9,8 +9,9 @@ import Dropdown from './Dropdown';
 import UseNavbar from './UseNavbar';
 
 const Navbar = () => {
-    const { navigateToLogin, signOff, authenticated, click, handleClick,
+    const { navigateToLogin, navigateToSearch, signOff, authenticated, click, handleClick,
         categories, dropdownCategory, onMouseLeaveCategory, onMouseEnterCategory } = UseNavbar()
+
     return (
         <header className='header'>
             {/* si no esta despleglado en modo mobile muestra MenuIcon si esta desplegablo muesta el CloseIcon esto solo sirve para modo mobile */}
@@ -54,7 +55,7 @@ const Navbar = () => {
                     </div>}
                 <div className='navbar_item'>
                     <div className='navbar_input'>
-                        <TextField label="Buscar Pelicula" variant="outlined" fullWidth />
+                        <TextField label="Buscar Pelicula" variant="outlined" fullWidth onKeyDown={navigateToSearch} autoComplete='false'/>
                     </div>
                 </div>
             </div>

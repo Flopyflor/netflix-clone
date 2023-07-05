@@ -30,6 +30,12 @@ const UseNavbar = () => {
     const navigateToLogin = () => {
         navigate("/login")
     }
+
+    const navigateToSearch = (event) => {
+        if (event.key == "Enter"){
+            navigate(`/search/movies/${event.target.value}`)
+        }
+    }
  
     useEffect(() => {
         authenticatedUser()
@@ -45,7 +51,8 @@ const UseNavbar = () => {
         dropdownCategory,
         authenticated,
         signOff,
-        navigateToLogin
+        navigateToLogin,
+        navigateToSearch
     };
 }
 
