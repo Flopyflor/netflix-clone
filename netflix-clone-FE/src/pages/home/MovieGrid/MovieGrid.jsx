@@ -6,29 +6,30 @@ import API from '../../../api/Urls';
 import Carousel from "../../../Components/carousel/Carousel";
 import TitleCard from "../../../Components/titleCard/TitleCard";
 
-const {PAGE} = API.FILTERS
+const { PAGE } = API.FILTERS
 
-function MovieGrid() { 
+function MovieGrid() {
 
-  const [page, setPage] = useState(1)  
+  const [page, setPage] = useState(1)
 
-  const {data: movies, isLoading, error} =  useSWR(`TopMovies${page}`, async (name) => await getTopMovies({[PAGE]: page})) ;   
+  const { data: movies, isLoading, error } = useSWR(`TopMovies${page}`, async (name) => await getTopMovies({ [PAGE]: page }));
 
-  if (isLoading){
-    return <Loading/>
-  } else if (error){ 
+  if (isLoading) {
+    return <Loading />
+  } else if (error) {
     return <h1>{error.message}</h1>
   }
-  else{
+  
+  else {
     return (
       <>
         <Text h2>Top Movies: </Text>
         <Carousel>
-        {
+          {
             movies?.map((movie) => (
-            <TitleCard movie={movie} key={movie.id}/>
-            ))    
-            }
+              <TitleCard movie={movie} key={movie.id} />
+            ))
+          }
         </Carousel>
       </>
     )

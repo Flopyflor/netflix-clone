@@ -5,10 +5,10 @@ import TVGrid from "../TVGrid/TVGrid";
 const Home = () => {
     return (<>
         <Alert />
-        <MovieGrid></MovieGrid>
-        <TVGrid></TVGrid>
-    </> 
+        <MovieGrid />
+        <TVGrid />
+    </>
     );
 }
- 
+
 export default Home;

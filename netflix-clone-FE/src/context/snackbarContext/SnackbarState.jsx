@@ -8,7 +8,7 @@ const SnackbarState = (props) => {
         open: false,
         msg: null
     };
-    
+
 
     const [state, dispatch] = useReducer(SnackbarReducer, initialState);
 
@@ -28,13 +28,26 @@ const SnackbarState = (props) => {
         }, 5000)
 
     }
+
+    const closeSnackbar = () => {
+        dispatch({
+            type: CLOSE_SNACKBAR,
+        })
+    }
+
+    const onClose = () => {
+        
+    }
+
     return (
         <SnackBarContext.Provider
             value={{
                 msg: state.msg,
                 category: state.category,
                 open: state.open,
-                openSnackbar
+                openSnackbar,
+                closeSnackbar,
+                onClose
             }}
         >
             {props.children}

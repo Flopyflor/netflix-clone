@@ -25,9 +25,11 @@ PARA INDICAR AL SNACKBAR QUE FUE EXITOSO SI NO LE PASAMOS NADA TOMARA COMO QUE E
 const Alert = () => {
 
     const snackBarContext = useContext(SnackBarContext)
-    const { open, msg, category } = snackBarContext
+    const { open, msg, category, closeSnackbar } = snackBarContext
+
+
     return (
-        <Dialog aria-labelledby="simple-dialog-title" open={open} maxWidth="md" fullWidth scroll="body" PaperProps={{
+        <Dialog aria-labelledby="simple-dialog-title" open={open} onClose={closeSnackbar} maxWidth="md" fullWidth scroll="body" PaperProps={{
             style: {
                 backgroundColor: 'transparent',
                 boxShadow: 'none',
@@ -35,8 +37,8 @@ const Alert = () => {
         }}>
             <div id="container">
                 {category === "success" ?
-                    <RepusableAlert msg={msg} /> :
-                    <RepusableAlert id="error-box" face='face2' mouth='mouth sad' shadow='shadow move' msg={msg} button='try again' severity='Error!' />
+                    <RepusableAlert msg={msg} closeSnackbar={closeSnackbar}/> :
+                    <RepusableAlert id="error-box" face='face2' mouth='mouth sad' shadow='shadow move' msg={msg} button='try again' severity='Error!'  closeSnackbar={closeSnackbar}/>
                 }
             </div>
         </Dialog>
