@@ -13,12 +13,10 @@ const {PAGE, WITH_GENRES} = API.FILTERS
 function MovieCategory() { 
 
     const {category} = useParams();
-
-    const genre = movieGenres.filter((genre) => genre.name==category)[0]
-
+    
     const [page, setPage] = useState(1)
 
-    const {data: movies, isLoading, error} =  useSWR(`TopMovies${page}`, async (name) => await getTopMovies({[PAGE]: page, [WITH_GENRES]: genre.id})) ;   
+    const {data: movies, isLoading, error} =  useSWR(`${category}Movies${page}`, async (name) => await getTopMovies({[PAGE]: page, [WITH_GENRES]: category})) ;   
 
 
     if (isLoading){
@@ -29,7 +27,7 @@ function MovieCategory() {
     else{
     return (
         <>
-        <Text h1>{category} Movies: </Text>
+        <Text h1>{movieGenres.filter((genre) => genre.id==category)[0].name} Movies: </Text>
         <TitleGrid>
         {movies?.map((movie) => (
             <TitleCard movie={movie} key={movie.id}></TitleCard>

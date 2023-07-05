@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const Dropdown = ({name, path}) => {
     return ( 
-        <li className="dropdown_item">
-            <Link to={`${path}/movies`} className="dropdown_link">{name}</Link>
-        </li>
+        <Link to={`${path}/movies`} className="dropdown_link">
+        <li className="dropdown_item">{name}</li>
+        </Link>
      );
 }
  

@@ -30,7 +30,7 @@ const Navbar = () => {
                     <div className='navbar_icon'>
                         <ArrowDropDownIcon />
                     </div>
-                    {dropdownCategory &&
+                    {(dropdownCategory ) &&
                         <ul className={click ? 'navbar_dropdown dropdown_clicked' : "navbar_dropdown"}>
                             {
                                 categories.map((category) => <Dropdown name={category.name} path={category.id} key={category.id} />)
@@ -38,6 +38,7 @@ const Navbar = () => {
                         </ul>
                     }
                 </div>
+
                 {authenticated ?
                     <>
                         <div className='navbar_item'>
