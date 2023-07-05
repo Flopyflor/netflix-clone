@@ -1,7 +1,7 @@
 import { Loading, Text, Avatar } from "@nextui-org/react";
 import { getImageURL, getMovieCreditsById } from "../../../api/Endpoints";
 import useSWR from 'swr'
-import './MovieCredits.css'
+import styles from './MovieCredits.module.css'
 
 function MovieCredits({id}) {
 
@@ -17,10 +17,10 @@ function MovieCredits({id}) {
         return (
             <>
             <Text h4>Crew:</Text>
-            <div className="crewList">
+            <div className={styles.crewList}>
             {credits.map((person)=>{
                 return(
-                <div className="creditsAvatar">
+                <div className={styles.creditsAvatar}>
                 <Avatar size='lg' src={getImageURL(person.profile)} css={{zIndex: 1}}/>
                 <Text h5 key={person.id}>{person.name} as {person.character}</Text>
                 </div>)

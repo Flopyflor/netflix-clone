@@ -1,9 +1,9 @@
-import './MovieGrid.css'
+import gridStyles from './MovieGrid.module.css'
 import useSWR from 'swr'
 import { Loading, Text, Pagination, Input, Button } from "@nextui-org/react";
 import { useState } from "react";
 import { getMovieSearch } from "../../api/Endpoints";
-import './SearchMovieResults.css'
+import searchStyles from './SearchMovieResults.module.css'
 import TitleCard from "../../Components/titleCard/titleCard";
 
 function SearchMovieResults({passedQuery = ''}) { 
@@ -24,7 +24,7 @@ function SearchMovieResults({passedQuery = ''}) {
   else{
     movieView = (
       <>
-      <div className="movieGrid">{
+      <div className={gridStyles.movieGrid}>{
         data.movies?.map((movie) => (
           <TitleCard movie={movie}/>))    
         }</div>
@@ -37,9 +37,9 @@ function SearchMovieResults({passedQuery = ''}) {
 
   return (
   <>
-  <div className="searchGroup" >
-    <Input className="searchInput" aria-label='search' onChange={(q)=> setSearch(q.target.value)}/>
-    <Button className="searchBtn" onPress={()=> {setQuery(search)}} css={{zIndex: 1}}>Search</Button>
+  <div className={searchStyles.searchGroup} >
+    <Input aria-label='search' onChange={(q)=> setSearch(q.target.value)}/>
+    <Button onPress={()=> {setQuery(search)}} css={{zIndex: 1}}>Search</Button>
   </div>
 
     <Text h2>Movies related to '{query}': </Text>

@@ -9,8 +9,8 @@ const RepusableAlert = ({ id = "success-box", msg = "éxito!", face = "face", mo
                 <div className={mouth}></div>
             </div>
             <div className={shadow}></div>
-            <div className="message"><h1 className="alert">{severity}</h1><p>{msg}</p></div>
-            <button className="button-box"><h1 className="green">{button}</h1></button>
+            <div className="message"><h1 className="alert alert-h1">{severity}</h1><p>{msg}</p></div>
+            <button className="button-box"><h1 className="green alert-h1">{button}</h1></button>
         </div>
     );
 }
