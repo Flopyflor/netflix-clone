@@ -9,6 +9,7 @@ import Layout from '../Components/header/Layout'
 import MovieView from "../pages/movie/MovieView/MovieView";
 import MovieCategory from '../pages/category/MovieCategory'
 import SearchMovieResults from "../pages/searchMovie/SearchMovieResults";
+import TVSeries from "../pages/TVSeries/TVSeries";
 
 const AppRouter = () => {
     //userContext   
@@ -25,6 +26,7 @@ const AppRouter = () => {
                     <Route exact path="/login" element={<Login />} />
                     <Route exact path="/nueva-cuenta" element={<SignUp />} />
                     <Route exact path="/movie/:id" element={<MovieView/>} />
+                    <Route exact path="/tv/:id" element={<TVSeries/>} />
                     <Route exact path="/:category/movies" element={<MovieCategory/>} />
                     <Route exact path="/search/movies" element={<SearchMovieResults/>} />
 

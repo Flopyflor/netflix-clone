@@ -1,6 +1,10 @@
+import API from "./Urls";
+const {TV, MOVIE} = API;
+
 export function mapTopMovies(results){
     return results.results.map((movie)=>{
         return {
+            type: MOVIE,
             id: movie.id,
             title: movie.title,
             poster: movie.poster_path,
@@ -12,6 +16,7 @@ export function mapTopMovies(results){
 export function mapTopTV(results){
     return results.results.map((tv)=>{
         return {
+            type: TV,
             id: tv.id,
             title: tv.name,
             poster: tv.poster_path,
@@ -21,9 +26,6 @@ export function mapTopTV(results){
 }
 
 export function mapMovieCredits(results){
-
-    console.log("creditos:", results)
-
     return results.cast.map((person)=> {
         return {
             id: person.id,
@@ -35,9 +37,6 @@ export function mapMovieCredits(results){
 }
 
 export function mapMovieDetails(movie) {
-
-    //console.log("movie:", movie)
-
     return {
         id: movie.id,
         title: movie.title,
@@ -49,7 +48,6 @@ export function mapMovieDetails(movie) {
 }
 
 export function mapSearchMovies(results){
-    console.log(results)
     const movies = results.results.map((movie)=>{
         return {
             id: movie.id,
@@ -63,4 +61,16 @@ export function mapSearchMovies(results){
         totalPages: results.total_pages,
         movies: movies
     }
+}
+
+export function mapTVDetails(results) {
+    return {
+        id: results.id,
+        title: results.name,
+        episodes: results.number_of_episodes,
+        overview: results.overview,
+        inProduction: results.in_production,
+        backdrop: results.backdrop_path
+    }
+
 }
