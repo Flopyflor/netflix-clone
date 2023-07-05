@@ -20,7 +20,7 @@ function TVSeries() {
             <>
 
             <div>
-                <Text h2>{series.title}</Text>
+                <Text h1>{series.title}</Text>
                 <Image showSkeleton src={getImageURL(series.backdrop, API.IMAGE_SIZES.W1280)} alt="" />
                 <Text h3>{series.overview}</Text>
                 <Text h5>Status: {series.inProduction? "Ongoing": "Finished"}</Text>

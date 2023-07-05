@@ -20,7 +20,7 @@ function MovieView() {
         return (
             <>
             <div>
-                <Text h2>{movie.title}</Text>
+                <Text h1>{movie.title}</Text>
                 <Text h3>{movie.tagline}</Text>
                 <Image showSkeleton src={getImageURL(movie.backdrop, API.IMAGE_SIZES.W1280)} alt="" />
                 <Text h5>{movie.overview}</Text>  
