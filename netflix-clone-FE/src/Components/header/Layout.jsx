@@ -4,7 +4,9 @@ const Layout = ({ children }) => {
       return (
         <>
             <Navbar />
-            {children}
+            <div className="content" style={{margin:'10px 20px'}}>
+                {children}
+            </div>
         </>
     );
 }

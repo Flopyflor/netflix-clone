@@ -20,9 +20,11 @@ const Navbar = () => {
             </div>
             <div className={click ? "navbar_container active" : "navbar_container"} >
 
-                <div className='navbar_item'>
-                    <Link to='/' className='navbar_link' onClick={handleClick}>Inicio</Link>
-                </div>
+                <Link to='/' className='navbar_link' onClick={handleClick}>
+                    <div className='navbar_item'>Inicio</div>
+                </Link>
+
+
                 <div className='navbar_item icon' onMouseEnter={onMouseEnterCategory} onMouseLeave={onMouseLeaveCategory}>
                     <Link href='/' className='navbar_link' onClick={handleClick}>Categorias</Link>
                     <div className='navbar_icon'>
