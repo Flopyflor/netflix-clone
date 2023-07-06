@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 import { Loading, Text, Pagination } from "@nextui-org/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getMovieSearch } from "../../api/Endpoints";
 import TitleCard from "../../Components/titleCard/TitleCard";
 import TitleGrid from '../../Components/titleGrid/TitleGrid';
@@ -14,6 +14,11 @@ function SearchMovieResults() {
   const [page, setPage] = useState(1)  
 
   const {data, isLoading, error} =  useSWR(`${query}&${page}`, async ()=> await getMovieSearch(query, page));
+
+  useEffect(() => {
+    setPage(1)
+  }, [query])
+  
 
 
   let movieView = (<></>)

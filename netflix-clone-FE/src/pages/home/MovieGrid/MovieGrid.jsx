@@ -1,7 +1,7 @@
 import { getTopMovies } from "../../../api/Endpoints";
 import useSWR from 'swr'
 import { Loading, Text } from "@nextui-org/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import API from '../../../api/Urls';
 import Carousel from "../../../Components/carousel/Carousel";
 import TitleCard from "../../../Components/titleCard/TitleCard";
