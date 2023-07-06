@@ -10,6 +10,7 @@ import MovieView from "../pages/movie/MovieView/MovieView";
 import MovieCategory from '../pages/category/MovieCategory'
 import SearchMovieResults from "../pages/searchMovie/SearchMovieResults";
 import TVSeries from "../pages/TVSeries/TVSeries";
+import FavoritesView from "../pages/favorites/FavoritesView"
 
 const AppRouter = () => {
     //userContext   
@@ -29,6 +30,7 @@ const AppRouter = () => {
                     <Route exact path="/tv/:id" element={<TVSeries/>} />
                     <Route exact path="/:category/movies" element={<MovieCategory/>} />
                     <Route exact path="/search/movies/:query" element={<SearchMovieResults/>} />
+                    <Route exact path="/favoritos" element={<FavoritesView/>} />
 
                     {(!loading) ?
                         <>

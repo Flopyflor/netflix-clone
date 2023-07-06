@@ -1,6 +1,6 @@
 import useSWR from 'swr'
-import { Loading, Text, Pagination, Input, Button } from "@nextui-org/react";
-import { useState, useEffect } from "react";
+import { Loading, Text, Pagination } from "@nextui-org/react";
+import { useState } from "react";
 import { getMovieSearch } from "../../api/Endpoints";
 import TitleCard from "../../Components/titleCard/TitleCard";
 import TitleGrid from '../../Components/titleGrid/TitleGrid';
