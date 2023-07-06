@@ -53,3 +53,9 @@
 .items::-webkit-scrollbar{
     display: none;
 }
+
+@media screen and (max-width: 960px) {
+    .overlayButton {
+        display: none;
+    }
+}
