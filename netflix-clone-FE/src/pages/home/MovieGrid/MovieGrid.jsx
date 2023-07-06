@@ -1,7 +1,7 @@
 import { getTopMovies } from "../../../api/Endpoints";
 import useSWR from 'swr'
 import { Loading, Text } from "@nextui-org/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import API from '../../../api/Urls';
 import Carousel from "../../../Components/carousel/Carousel";
 import TitleCard from "../../../Components/titleCard/TitleCard";
@@ -12,8 +12,8 @@ function MovieGrid() {
 
   const [page, setPage] = useState(1)
 
-  const { data: movies, isLoading, error } = useSWR(`TopMovies${page}`, async (name) => await getTopMovies({ [PAGE]: page }));
-
+  const {data, isLoading, error} =  useSWR(`TopMovies${page}`, async (name) => await getTopMovies({[PAGE]: page})) ;   
+  
   if (isLoading) {
     return <Loading />
   } else if (error) {
@@ -25,11 +25,11 @@ function MovieGrid() {
       <>
         <Text h2>Top Movies: </Text>
         <Carousel>
-          {
-            movies?.map((movie) => (
-              <TitleCard movie={movie} key={movie.id} />
-            ))
-          }
+        {
+            data.results?.map((movie) => (
+            <TitleCard movie={movie} key={movie.id}/>
+            ))    
+            }
         </Carousel>
       </>
     )

@@ -16,7 +16,7 @@ function MovieCategory() {
     
     const [page, setPage] = useState(1)
 
-    const {data: movies, isLoading, error} =  useSWR(`${category}Movies${page}`, async (name) => await getTopMovies({[PAGE]: page, [WITH_GENRES]: category})) ;   
+    const {data, isLoading, error} =  useSWR(`${category}Movies${page}`, async (name) => await getTopMovies({[PAGE]: page, [WITH_GENRES]: category})) ;   
 
 
     if (isLoading){
@@ -29,12 +29,12 @@ function MovieCategory() {
         <>
         <Text h1>{movieGenres.filter((genre) => genre.id==category)[0].name} Movies: </Text>
         <TitleGrid>
-        {movies?.map((movie) => (
+        {data.results?.map((movie) => (
             <TitleCard movie={movie} key={movie.id}></TitleCard>
         ))}
         </TitleGrid>
 
-        <Pagination initialPage={page} total={movies.totalPages} controls={false} onChange={(newPage) => {setPage(newPage)}}/>
+        <Pagination initialPage={page} total={data.totalPages} controls={false} onChange={(newPage) => {setPage(newPage)}}/>
         </>
     )
     }

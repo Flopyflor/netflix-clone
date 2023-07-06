@@ -2,7 +2,9 @@ import API from "./Urls";
 const {TV, MOVIE} = API;
 
 export function mapTopMovies(results){
-    return results.results.map((movie)=>{
+    return {
+        totalPages: results.total_pages,
+        results: results.results.map((movie)=>{
         return {
             type: MOVIE,
             id: movie.id,
@@ -10,19 +12,22 @@ export function mapTopMovies(results){
             poster: movie.poster_path,
             overview: movie.overview
         }
-    })
+    })}
 }
 
 export function mapTopTV(results){
-    return results.results.map((tv)=>{
-        return {
-            type: TV,
-            id: tv.id,
-            title: tv.name,
-            poster: tv.poster_path,
-            overview: tv.overview
-        }
-    })
+    return{
+        totalPages: results.total_pages, 
+        results: results.results.map((tv)=>{
+            return {
+                type: TV,
+                id: tv.id,
+                title: tv.name,
+                poster: tv.poster_path,
+                overview: tv.overview
+            }
+        })
+    } 
 }
 
 export function mapMovieCredits(results){

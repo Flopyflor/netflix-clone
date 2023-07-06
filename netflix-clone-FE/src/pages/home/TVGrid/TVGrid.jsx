@@ -12,7 +12,7 @@ function TVGrid() {
 
   const [page, setPage] = useState(1)  
 
-  const {data: movies, isLoading, error} =  useSWR(`TopTV${page}`, async (name) => await getTopTV({[PAGE]: page})) ;   
+  const {data, isLoading, error} =  useSWR(`TopTV${page}`, async (name) => await getTopTV({[PAGE]: page})) ;   
 
   if (isLoading){
     return <Loading/>
@@ -25,8 +25,8 @@ function TVGrid() {
         <Text h2>Top TV: </Text>
         <Carousel>
         {
-            movies?.map((movie) => (
-            <TitleCard movie={movie} key={movie.id}/>
+            data.results?.map((tv) => (
+            <TitleCard movie={tv} key={tv.id}/>
             ))    
             }
         </Carousel>
