@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import './Alert.css'
 import { Dialog } from "@mui/material";
 import SnackBarContext from '../../context/snackbarContext/SnackbarContext';
-import RepusableAlert from './reusableAlert';
+import RepusableAlert from './ReusableAlert';
 
 /* 
 ********************************
